@@ -1,0 +1,75 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "1st",
+        "address": "19 N 4th St, Minneapolis, MN 55401"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.272450,
+          44.980690
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "4th",
+        "address": "1925 Plymouth Ave N, Minneapolis, MN 55411"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.305214,
+          44.991261
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "2nd",
+        "address": "1911 Central Ave NE, Minneapolis, MN 55418"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.246690,
+          45.008400
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "5th",
+        "address": "3101 Nicollet Ave, Minneapolis, MN 55408"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.277283,
+          44.946129
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "3rd",
+        "address": "3000 Minnehaha Ave, Minneapolis, MN 55406"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.234280,
+          44.948300
+        ]
+      }
+    }
+  ]
+}
