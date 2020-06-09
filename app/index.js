@@ -94,6 +94,7 @@ import mpct from '../sources/mpct.json';
 import locations from '../sources/locations.json';
 import calls311 from '../sources/calls_311.json';
 import fire from '../sources/fires.json';
+import police from '../sources/police.json';
 import buildings from '../sources/buildings_damaged_final.json';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3RhcnRyaWJ1bmUiLCJhIjoiY2sxYjRnNjdqMGtjOTNjcGY1cHJmZDBoMiJ9.St9lE8qlWR5jIjkPYd3Wqw';
@@ -289,25 +290,27 @@ map.on('load', function() {
           'circle-radius': 3,
           'circle-stroke-width': 0,
           'circle-stroke-color': '#cccccc',
-          'circle-color': {
-            "property": "combined",
-            "stops": [
-              [0, "rgba(255, 255, 255, 0)"],
-              [43976, "#C28059"],
-              [43977, "#F2C9AC"],
-              [43978, "#DEA381"],
-              [43979, "#C28059"],
-              [43980, "#8F4B31"],
-              [43981, "#2C3942"],
-              [43982, "#556E7F"],
-              [43983, "#7F98AA"],
-              [43984, "#A8B9C5"],
-              [43985, "#C6D1D9"],
-              [43986, "#DAE1E7"]
-             ]
-     }
+          'circle-color': 'rgb(255, 127, 14)'
        }
   });
+
+//   'circle-color': {
+//     "property": "combined",
+//     "stops": [
+//       [0, "rgba(255, 255, 255, 0)"],
+//       [43976, "#C28059"],
+//       [43977, "#F2C9AC"],
+//       [43978, "#DEA381"],
+//       [43979, "#C28059"],
+//       [43980, "#8F4B31"],
+//       [43981, "#2C3942"],
+//       [43982, "#556E7F"],
+//       [43983, "#7F98AA"],
+//       [43984, "#A8B9C5"],
+//       [43985, "#C6D1D9"],
+//       [43986, "#DAE1E7"]
+//      ]
+// }
 
     //311
     map.addSource('calls311', {
@@ -323,30 +326,35 @@ map.on('load', function() {
       'type': 'circle',
        'paint': {
           'circle-opacity': 0.5,
-          'circle-radius': 1.5,
+          'circle-radius': 1.4,
           'circle-stroke-width': 0,
           'circle-stroke-color': '#cccccc',
-          'circle-color': {
-            "property": "combined",
-            "stops": [
-              [0, "rgba(255, 255, 255, 0)"],
-              [43976, "#F2E0C7"],
-              [43977, "#F2C9AC"],
-              [43978, "#DEA381"],
-              [43979, "#C28059"],
-              [43980, "#8F4B31"],
-              [43981, "#2C3942"],
-              [43982, "#556E7F"],
-              [43983, "#7F98AA"],
-              [43984, "#A8B9C5"],
-              [43985, "#C6D1D9"],
-              [43986, "#DAE1E7"]
-             ]
-     }
+          'circle-color': 'rgb(84, 193, 76)'
        }
   });
 
-    //UNREST SHOTS
+      //POLICE
+      map.addSource('police', {
+        type: 'geojson',
+        data: police
+      });
+     
+      map.addLayer({
+        'id': 'police-layer',
+        'interactive': true,
+        'source': 'police',
+        'layout': {},
+        'type': 'circle',
+        'paint': {
+          'circle-opacity': 1,
+          'circle-radius': 3,
+          'circle-stroke-width': 0,
+          'circle-stroke-color': 'rgb(107, 178, 244)',
+          'circle-color': 'rgb(107, 178, 244)'
+       }
+      });
+
+    //SHOTS
     map.addSource('locations', {
       type: 'geojson',
       data: locations
@@ -361,27 +369,14 @@ map.on('load', function() {
       'paint': {
         'circle-opacity': 1,
         'circle-radius': 2,
-        'circle-stroke-width': 2,
-        'circle-stroke-color': {
-          "property": "combined",
-          "stops": [
-            [0, "rgba(255, 255, 255, 0)"],
-            [43976, "#F2E0C7"],
-            [43977, "#F2C9AC"],
-            [43978, "#DEA381"],
-            [43979, "#C28059"],
-            [43980, "#8F4B31"],
-            [43981, "#2C3942"],
-            [43982, "#556E7F"],
-            [43983, "#7F98AA"],
-            [43984, "#A8B9C5"],
-            [43985, "#C6D1D9"],
-            [43986, "#DAE1E7"]
-           ]
-   },
+        'circle-stroke-width': 1.2,
+        'circle-stroke-color': 'rgb(98, 123, 140)',
         'circle-color': 'rgba(0,0,0,0)'
      }
     });
+
+
+
 
   });
 

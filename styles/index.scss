@@ -144,43 +144,50 @@ $selector-wrapper: '.strib-styles.ssa.ssb.ssc';
 }
 
 .precinct {
-  height: 11px;
-  width: 11px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
   background-color: #333333;
   border:1px solid 333333;
 }
 
 .previous {
-  height: 8px;
-  width: 8px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
   background-color: #dddddd;
 }
 
 .fire {
-  height: 10px;
-  width: 10px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
-  border:1px solid #dddddd;
-  background-color: #dddddd;
+  border:1px solid rgb(255, 127, 14);
+  background-color: rgb(255, 127, 14);
 }
 
+.police {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border:1px solid rgb(107, 178, 244);
+  background-color: rgb(107, 178, 244);
+}
 
 .call {
-  height: 6px;
-  width: 6px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
-  border:1px solid #dddddd;
-  background-color: #dddddd;
+  border:1px solid rgb(84, 193, 76);
+  background-color: rgb(84, 193, 76);
 }
 
 
 .shotspotter {
-  height: 14px;
-  width: 14px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
-  border:2px solid #dddddd;
+  border:2px solid rgb(98, 123, 140);
 }
 
 
