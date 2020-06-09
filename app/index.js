@@ -293,7 +293,7 @@ map.on('load', function() {
             "property": "combined",
             "stops": [
               [0, "rgba(255, 255, 255, 0)"],
-              [43976, "#F2E0C7"],
+              [43976, "#C28059"],
               [43977, "#F2C9AC"],
               [43978, "#DEA381"],
               [43979, "#C28059"],
@@ -360,7 +360,7 @@ map.on('load', function() {
       'type': 'circle',
       'paint': {
         'circle-opacity': 1,
-        'circle-radius': 4,
+        'circle-radius': 2,
         'circle-stroke-width': 2,
         'circle-stroke-color': {
           "property": "combined",
