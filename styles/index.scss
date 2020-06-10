@@ -190,6 +190,14 @@ $selector-wrapper: '.strib-styles.ssa.ssb.ssc';
   border:2px solid rgb(98, 123, 140);
 }
 
+.incident {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border:1px solid #9E403C;
+  background-color: #9E403C;
+}
+
 
 .l {
   display:inline-block;
@@ -225,10 +233,37 @@ $selector-wrapper: '.strib-styles.ssa.ssb.ssc';
 
 }
 
+.canBlock {
+  display: inline-block;
+  width: 24%;
+  height: 250px;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-top: 0;
+}
+
+.canLabel {
+  text-align:center;
+  font-weight:bold;
+  font-size:0.9em;
+  border-radius: 5px;
+  padding: 0 7px;
+  margin-bottom: 3px;
+  font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+}
+
 .content-scroll {
   width: 100% !important;
   max-width: 100% !important;
   margin: auto;
+}
+
+.tinymap {
+  pointer-events:none !important;
+}
+
+.tinymap svg {
+  width:200 !important;
 }
 
     /*BLUE SHADED RAMP*/

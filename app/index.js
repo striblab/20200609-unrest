@@ -87,6 +87,8 @@ utils.documentReady(() => {
 //   });
 // });
 
+import Map from './tinymaps.js';
+
 
 import mpls from '../sources/mpls.json';
 import precincts from '../sources/precincts.json';
@@ -374,10 +376,6 @@ map.on('load', function() {
         'circle-color': 'rgba(0,0,0,0)'
      }
     });
-
-
-
-
   });
 
 
@@ -403,5 +401,40 @@ $(document).ready(function() {
     });
 });
 
+
+//SMALL MULTIPLES
+const map0 = new Map("#tinymap0",43976);
+const map1 = new Map("#tinymap1",43977);
+const map2 = new Map("#tinymap2",43978);
+const map3 = new Map("#tinymap3",43979);
+const map4 = new Map("#tinymap4",43980);
+const map5 = new Map("#tinymap5",43981);
+const map6 = new Map("#tinymap6",43982);
+const map7 = new Map("#tinymap7",43983);
+const map8 = new Map("#tinymap8",43984);
+const map9 = new Map("#tinymap9",43985);
+const map10 = new Map("#tinymap10",43986);
+const map11 = new Map("#tinymap11",43987);
+const map12 = new Map("#tinymap12",43988);
+const map13 = new Map("#tinymap13",43989);
+const map14 = new Map("#tinymap14",43990);
+const map15 = new Map("#tinymap15",43991);
+
+map0.render();
+map1.render();
+map2.render();
+map3.render();
+map4.render();
+map5.render();
+map6.render();
+map7.render();
+map8.render();
+map9.render();
+map10.render();
+map11.render();
+map12.render();
+map13.render();
+map14.render();
+map15.render();
 
 !function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();
