@@ -240,6 +240,10 @@ $selector-wrapper: '.strib-styles.ssa.ssb.ssc';
   margin-bottom: 10px;
   text-align: center;
   margin-top: 0;
+
+  @media only screen and (max-width: 500px) {
+    width: 32%;
+  }
 }
 
 .canLabel {
