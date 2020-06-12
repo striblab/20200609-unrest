@@ -87,6 +87,7 @@ utils.documentReady(() => {
 //   });
 // });
 
+import * as d3 from 'd3';
 import Map from './tinymaps.js';
 
 
@@ -94,9 +95,6 @@ import mpls from '../sources/mpls.json';
 import precincts from '../sources/precincts.json';
 import mpct from '../sources/mpct.json';
 import locations from '../sources/locations.json';
-import calls311 from '../sources/calls_311.json';
-import fire from '../sources/fires.json';
-import police from '../sources/police.json';
 import buildings from '../sources/buildings_damaged_final.json';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3RhcnRyaWJ1bmUiLCJhIjoiY2sxYjRnNjdqMGtjOTNjcGY1cHJmZDBoMiJ9.St9lE8qlWR5jIjkPYd3Wqw';
@@ -179,6 +177,11 @@ if (utils.isMobile()) {
   });
 }
 
+var scale = new mapboxgl.ScaleControl({
+  maxWidth: 80,
+  unit: 'imperial'
+  });
+  map.addControl(scale)
                 
 map.on('load', function() {
 
@@ -275,20 +278,22 @@ map.on('load', function() {
      });
 
 
-  //FIRES
-     map.addSource('fire', {
-      type: 'geojson',
-      data: fire
-    });
+
+  map.addSource('locations', {
+    type: 'geojson',
+    data: locations
+  });
    
+  //   //FIRES
     map.addLayer({
       'id': 'fire-layer',
       'interactive': true,
-      'source': 'fire',
+      'source': 'locations',
       'layout': {},
+      'filter': ["==", "type", 'fire'],
       'type': 'circle',
        'paint': {
-          'circle-opacity': 1,
+          'circle-opacity': 0.6,
           'circle-radius': 3,
           'circle-stroke-width': 0,
           'circle-stroke-color': '#cccccc',
@@ -296,59 +301,16 @@ map.on('load', function() {
        }
   });
 
-//   'circle-color': {
-//     "property": "combined",
-//     "stops": [
-//       [0, "rgba(255, 255, 255, 0)"],
-//       [43976, "#C28059"],
-//       [43977, "#F2C9AC"],
-//       [43978, "#DEA381"],
-//       [43979, "#C28059"],
-//       [43980, "#8F4B31"],
-//       [43981, "#2C3942"],
-//       [43982, "#556E7F"],
-//       [43983, "#7F98AA"],
-//       [43984, "#A8B9C5"],
-//       [43985, "#C6D1D9"],
-//       [43986, "#DAE1E7"]
-//      ]
-// }
-
-    //311
-    map.addSource('calls311', {
-      type: 'geojson',
-      data: calls311
-    });
-   
-    map.addLayer({
-      'id': 'calls311-layer',
-      'interactive': true,
-      'source': 'calls311',
-      'layout': {},
-      'type': 'circle',
-       'paint': {
-          'circle-opacity': 0.5,
-          'circle-radius': 1.4,
-          'circle-stroke-width': 0,
-          'circle-stroke-color': '#cccccc',
-          'circle-color': 'rgb(84, 193, 76)'
-       }
-  });
-
-      //POLICE
-      map.addSource('police', {
-        type: 'geojson',
-        data: police
-      });
-     
+  //   //POLICE
       map.addLayer({
         'id': 'police-layer',
         'interactive': true,
-        'source': 'police',
+        'source': 'locations',
         'layout': {},
+        'filter': ["==", "type", 'police'],
         'type': 'circle',
         'paint': {
-          'circle-opacity': 1,
+          'circle-opacity': 0.6,
           'circle-radius': 3,
           'circle-stroke-width': 0,
           'circle-stroke-color': 'rgb(107, 178, 244)',
@@ -356,27 +318,56 @@ map.on('load', function() {
        }
       });
 
-    //SHOTS
-    map.addSource('locations', {
-      type: 'geojson',
-      data: locations
-    });
-   
+  //SHOTS
     map.addLayer({
-      'id': 'locations-layer',
+      'id': 'shots-layer',
       'interactive': true,
       'source': 'locations',
       'layout': {},
+      'filter': ["==", "type", 'shots'],
       'type': 'circle',
       'paint': {
-        'circle-opacity': 1,
+        'circle-opacity': 0.6,
         'circle-radius': 2,
         'circle-stroke-width': 1.2,
         'circle-stroke-color': 'rgb(98, 123, 140)',
         'circle-color': 'rgba(0,0,0,0)'
      }
     });
+
+    var marker = {
+      type: 'FeatureCollection',
+      features: [{
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [-93.262444, 44.934780]
+        },
+        properties: {
+          title: 'Cup Foods',
+          description: "Floyd's death"
+        }
+      }]
+    };
+
+    marker.features.forEach(function(marker) {
+
+      // create a HTML element for each feature
+      var el = document.createElement('div');
+      el.className = 'marker';
+    
+      // make a marker for each feature and add to the map
+      new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(map);
+    });
+
+    map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+
   });
+
+
+  
 
 
 $(document).ready(function() {
@@ -402,6 +393,74 @@ $(document).ready(function() {
 });
 
 
+//SLIDER BAR MAGICKS
+var myTimer;
+
+document.getElementById("play").addEventListener("click", function(){
+
+if(this.className == 'is-playing'){
+  this.className = "";
+  this.innerHTML = "&#9658;";
+
+  clearInterval (myTimer);
+
+} else{
+  this.className = "is-playing";
+  this.innerHTML = "&#10074; &#10074;";
+  
+  clearInterval (myTimer);
+  myTimer = setInterval (function() {
+    var b= d3.select("#slider");
+    var t = (+b.property("value") + 1) % (+b.property("max") + 1);
+    if (t == 0) { t = +b.property("min"); }
+    b.property("value", t);
+    update (t);
+  }, 50);
+}
+
+});
+
+document.getElementById('slider').addEventListener('input', function(e) {
+  var hour = parseInt(e.target.value);
+
+  update(hour);
+});
+
+function update(n) {
+
+  var shotsFilter=[
+    'all',
+    ['<', ['number', ['get', 'index']], n],
+    ['match', ['get', 'type'], 'shots', true, false]
+  ];
+
+  var fireFilter=[
+    'all',
+    ['<', ['number', ['get', 'index']], n],
+    ['match', ['get', 'type'], 'fire', true, false]
+  ];
+
+  var policeFilter=[
+    'all',
+    ['<', ['number', ['get', 'index']], n],
+    ['match', ['get', 'type'], 'police', true, false]
+  ];
+
+  // update the map
+  map.setFilter('fire-layer', fireFilter);
+  map.setFilter('police-layer', policeFilter);
+  map.setFilter('shots-layer', shotsFilter);
+
+  var myTimeStr = String(locations.features[n].properties.time),
+  hours = myTimeStr.substring(0, myTimeStr.length-2), 
+  mins = myTimeStr.substring(myTimeStr.length-2),
+  res = hours + ':' + mins;
+
+  document.getElementById('active-hour').innerText = locations.features[n].properties.date + " " + res;
+}
+
+
+
 //SMALL MULTIPLES
 const map0 = new Map("#tinymap0",43976);
 const map1 = new Map("#tinymap1",43977);
@@ -419,6 +478,11 @@ const map12 = new Map("#tinymap12",43988);
 const map13 = new Map("#tinymap13",43989);
 const map14 = new Map("#tinymap14",43990);
 const map15 = new Map("#tinymap15",43991);
+const map16 = new Map("#tinymap16",43992);
+const map17 = new Map("#tinymap17",43993);
+const map18 = new Map("#tinymap18",43994);
+const map19 = new Map("#tinymap19",43995);
+const map20 = new Map("#tinymap20",43996);
 
 map0.render();
 map1.render();
@@ -436,5 +500,11 @@ map12.render();
 map13.render();
 map14.render();
 map15.render();
+map15.render();
+map16.render();
+map17.render();
+map18.render();
+map19.render();
+map20.render();
 
 !function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();
