@@ -451,12 +451,25 @@ function update(n) {
   map.setFilter('police-layer', policeFilter);
   map.setFilter('shots-layer', shotsFilter);
 
-  var myTimeStr = String(locations.features[n].properties.time),
-  hours = myTimeStr.substring(0, myTimeStr.length-2), 
-  mins = myTimeStr.substring(myTimeStr.length-2),
-  res = hours + ':' + mins;
+  var myTimeStr = String(locations.features[n].properties.time);
+  var hours = myTimeStr.substring(0, myTimeStr.length-2);
 
-  document.getElementById('active-hour').innerText = locations.features[n].properties.date + " " + res;
+  var am = "a.m.";
+  var num = Number(hours);
+  if (num > 12) { 
+    hours = num - 12; 
+  }
+  if ((hours == null) || (hours == "")) {
+    hours = 12;
+  }
+  if (num >= 12) { 
+    am = "p.m."; 
+  }
+  var mins = myTimeStr.substring(myTimeStr.length-2);
+  if (mins == "0") { mins = "00"; }
+  var res = hours + ':' + mins;
+
+  document.getElementById('active-hour').innerText = locations.features[n].properties.date + " " + res + " " + am;
 }
 
 

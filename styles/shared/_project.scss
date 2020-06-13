@@ -2,6 +2,9 @@
  * Project specific styling.
  */
 
+ body, html, .project-page-container {
+   overflow-x: hidden !important;
+ }
 
  p {
     -webkit-font-smoothing: antialiased;
@@ -993,7 +996,7 @@
   
   // breakpoints 
   @media (max-width:800px) {
-      .slide, .slide iframe, .container-lg, #wrapper, #map, .map, .chart, .space .byline, .space, .body, .body p, .leadin, .leadin p {
+      .slide, .slide iframe, .container-lg, #wrapper, .center, #map, .map, .chart, .space .byline, .space, .body, .body p, .leadin, .leadin p {
           width:100% !important;
           max-width:100% !important;
           min-width:100% !important;

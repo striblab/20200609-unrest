@@ -35,7 +35,8 @@
 
   <div class="slide space">
         <div class="center">
-            <div class="l"><span class="dot incident"></span> police, fire or ShotSpotter incident</div> 
+            <div id="mainlegend">Minneapolis police and fire incidents by day</div>
+            <div class="l"><span class="dot incident"></span> police, fire or shot sound</div> 
         </div> 
         <div class="slide" id="spill">
             <div id="canContain">
@@ -152,6 +153,8 @@
     <p>Mapping these incidents across the city from Floyd's death to three weekends later paints a stark picture of unrest concentrated primarily in Midtown and North Side Minneapolis, with most other places experiencing much lighter activity.</p>   
 
     <p>Gradually, recorded calls started to slow in rate and volume.</p>
+
+    <p>Press the play button to explore when and where many incidents occured.</p>
   </section>
 
       <div class="space">
@@ -163,7 +166,7 @@
                 <input id='slider' class='row' type='range' min='0' max='3502' step='2' value='0' />
               </div>
 
-              <div class="l"><span class="dot shotspotter"></span> shots</div> &nbsp; <div class="l"><span class="dot policeM"></span> police</div> &nbsp; <div class="l"><span class="dot fireM"></span> fire</div> &nbsp; <div class="l"><span class="legendary building">damaged building</span></div> &nbsp; <div class="l"><span class="dot precinct"></span> MPD precinct</div> &nbsp; <div class="l"><span class="dot marker"></span> Floyd's death</div> 
+              <div class="l"><span class="dot policeM"></span> police</div> &nbsp; <div class="l"><span class="dot fireM"></span> fire</div> &nbsp; <div class="l"><span class="dot shotspotter"></span> shot sound</div> &nbsp; <div class="l"><span class="legendary building">damaged building</span></div> &nbsp; <div class="l"><span class="dot precinct"></span> MPD precinct</div> &nbsp; <div class="l"><span class="dot marker"></span> Floyd's death</div> 
             </div>
           <div id="map"></div>
           <div class="byline">

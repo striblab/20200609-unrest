@@ -126,7 +126,9 @@ $selector-wrapper: '.strib-styles.ssa.ssb.ssc';
 }
 
 .center {
-  text-align:center;
+  width:800px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .my-custom-control{
@@ -302,14 +304,19 @@ $selector-wrapper: '.strib-styles.ssa.ssb.ssc';
 }
 
 #sliderbar {
-  width:500px;
-  margin-left:auto;
-  margin-right:auto;
-  margin-bottom:18px;
+  border: 1px solid black;
+  width: 380px;
+  margin-bottom: 18px;
+  padding-top: 18px;
+
 
   @media only screen and (max-width: 500px) {
     width: 100%;
   }
+}
+
+#active-hour {
+  font-size: 0.8em;
 }
 
 button:focus {
@@ -416,7 +423,7 @@ input[type=range]:focus::-ms-fill-upper {
     display: inline-block;
     margin-bottom: 1em;
     outline: none;
-    width: 200px;
+    width: 150px;
     padding:0;
     border:none;
     margin-top: 10px;
