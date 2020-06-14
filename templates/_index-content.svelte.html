@@ -20,7 +20,7 @@
 
     <p>And even as the city continues reopening after months of pandemic-related shutdowns, police reports have fallen below average levels.</p>
 
-    <p>For instance, reports of gunshot-like noises from ShotSpotter and 911 calls spiked after Floyd's death before dipping to near silence. While ShotSpotter activations in Minneapolis can generate false positives, the sensor network seemingly detected several nights of turmoil.</p>
+    <p>For instance, incidents of gunshot-like noises from ShotSpotter and 911 calls spiked after Floyd's death before dipping to near silence. While ShotSpotter activations in Minneapolis can generate false positives, the sensor network seemingly detected several nights of turmoil.</p>
 
     <p>&nbsp;</p>
   </section>
@@ -30,13 +30,15 @@
   </div>
 
   <section class="body">
-    <p>Mapping daily police incidents, confirmed fires and gunfire reports since Floyd's death captures that unrest – particularly along Lake Street – followed by activity quickly dissipating.</p>  
+    <p>Mapping daily police incidents, confirmed fires and gunfire reports since Floyd's death captures that unrest – particularly along Lake Street – followed by activity quickly dissipating.</p>
+
+    <p>This doesn't represent all police and fire activity, but only what's publicly logged as a confirmed incident by the city. Dispatch calls and other encounters involving emergency services, non-city agencies or the National Guard aren't included.</p>
   </section>
 
   <div class="slide space">
         <div class="center">
             <div id="mainlegend">Minneapolis police and fire incidents by day</div>
-            <div class="l"><span class="dot incident"></span> police, fire or shot sound</div> 
+            <div class="l"><span class="dot incident"></span> <span>police incident, fire or shot sound</span></div>
         </div> 
         <div class="slide" id="spill">
             <div id="canContain">
@@ -108,22 +110,6 @@
                 <div class="tinymap" id="tinymap16"><svg width="300" height="200" viewbox="80 -30 400 390" preserveaspectratio="xMidYMid"></svg></div>
                 <div class="canLabel">June 10</div>
               </div>
-              <div class="canBlock">
-                 <div class="tinymap" id="tinymap17"><svg width="300" height="200" viewbox="80 -30 400 390" preserveaspectratio="xMidYMid"></svg></div>
-                  <div class="canLabel">June 11</div>
-             </div>
-             <div class="canBlock">
-               <div class="tinymap" id="tinymap18"><svg width="300" height="200" viewbox="80 -30 400 390" preserveaspectratio="xMidYMid"></svg></div>
-               <div class="canLabel">June 12</div>
-             </div>
-             <div class="canBlock">
-              <div class="tinymap" id="tinymap19"><svg width="300" height="200" viewbox="80 -30 400 390" preserveaspectratio="xMidYMid"></svg></div>
-              <div class="canLabel">June 13</div>
-            </div>
-            <div class="canBlock">
-              <div class="tinymap" id="tinymap20"><svg width="300" height="200" viewbox="80 -30 400 390" preserveaspectratio="xMidYMid"></svg></div>
-              <div class="canLabel">June 14</div>
-            </div>
             </div>
           </div>
           <div class="byline">
@@ -132,7 +118,7 @@
     </div>
 
   <section class="body">
-    <p>Minneapolis police and fire department activity swelled over those nights amid burning, looting and confrontations with protesters. Since the arrest of four former officers for Floyd's murder – Derek Chauvin was charged on May 29 - reported calls to those services are much lower than normal.</p>
+    <p>Minneapolis police and fire department activity swelled over those nights amid burning, looting and confrontations with protesters. Since the arrest of four former officers for Floyd's murder – Derek Chauvin was charged on May 29 - such incidents have faded in volume.</p>
   </section>
 
   <div class="slide space">
@@ -140,7 +126,7 @@
   </div>
 
   <section class="body">
-    <p>Police calls and stops, along with confirmed fires, are now down for June compared to last year. Meanwhile, calls to 311, the nonemergency line, dramatically increased as neighborhoods assessed property damage, streets were cleaned up and residents surveyed the initial aftermath.</p>
+    <p>Police incidents and stops, along with confirmed fires, are now down for June compared to last year. By contrast, calls to 311, the nonemergency line, dramatically increased as neighborhoods assessed property damage, streets were cleaned up and residents surveyed the initial aftermath.</p>
 
     <p>It's unclear whether this decline in police activity is related to either residents making fewer calls to authorities, or to relatively quieter summer days during an ongoing pandemic where many events are still canceled and some businesses remain closed.</p>
   </section>
@@ -159,18 +145,19 @@
 
       <div class="space">
           <div class="center">
-              <div id="mainlegend">Minneapolis police and fire reports, May 25 - June 14</div>
+              <div id="mainlegend">Minneapolis police and fire reports, May 25 - June 10</div>
 
-              <div class='session' id='sliderbar'>
-                <div class="left"><button id="play">&#9658;</button> <label id='active-hour'>showing all</label></div>
-                <input id='slider' class='row' type='range' min='0' max='3502' step='2' value='0' />
-              </div>
-
-              <div class="l"><span class="dot policeM"></span> police</div> &nbsp; <div class="l"><span class="dot fireM"></span> fire</div> &nbsp; <div class="l"><span class="dot shotspotter"></span> shot sound</div> &nbsp; <div class="l"><span class="legendary building">damaged building</span></div> &nbsp; <div class="l"><span class="dot precinct"></span> MPD precinct</div> &nbsp; <div class="l"><span class="dot marker"></span> Floyd's death</div> 
+              <div class="l"><span class="dot policeM"></span> police incident</div> &nbsp; <div class="l"><span class="dot shotspotter"></span> shot sound</div> &nbsp; <div class="l"><span class="dot fireM"></span> fire</div> &nbsp; <div class="l"><span class="dot precinct"></span> MPD precinct</div> &nbsp; <div class="l"><span class="dot marker"></span> Floyd's death</div> &nbsp; <div class="l"><span class="legendary building">damaged building</span></div>
             </div>
-          <div id="map"></div>
+          <div id="map">
+            <div class='session' id='sliderbar'>
+              <div class="left"><button id="play">&#9658;</button> <label id='active-hour'>showing all</label></div>
+              <input id='slider' class='row' type='range' min='0' max='3749' step='2' value='0' />
+            </div>
+          </div>
           <div class="byline">
-            <div>Map: Jeff Hargarten, Star Tribune • Source: City of Minneapolis</div>
+            <div><em>Note: does not include activity from outside or non-city agencies or dispatch logs.</em></div>
+            <div>Map: Jeff Hargarten, Star Tribune • Source: City of Minneapolis, Metropolitan Council</div>
         </div>
       </div>
 

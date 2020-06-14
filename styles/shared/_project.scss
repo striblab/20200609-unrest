@@ -1008,7 +1008,7 @@
   
   @media (max-width:600px) {
 
-    #map {
+    .mapboxgl-canvas {
       pointer-events:none !important;
     }
   

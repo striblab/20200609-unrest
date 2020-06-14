@@ -217,8 +217,8 @@ map.on('load', function() {
                  'paint': {
                 'fill-antialias' : true,
                 'fill-opacity': 0.85,
-                'fill-outline-color': "#9E403C",
-                'fill-color': "#9E403C"
+                'fill-outline-color': "#F2BAAE",
+                'fill-color': "#F2BAAE"
           }
         }, 'road-primary');
 
@@ -284,7 +284,7 @@ map.on('load', function() {
     data: locations
   });
    
-  //   //FIRES
+  //FIRES
     map.addLayer({
       'id': 'fire-layer',
       'interactive': true,
@@ -299,9 +299,9 @@ map.on('load', function() {
           'circle-stroke-color': '#cccccc',
           'circle-color': 'rgb(255, 127, 14)'
        }
-  });
+  }, 'settlement-subdivision-label');
 
-  //   //POLICE
+  //POLICE
       map.addLayer({
         'id': 'police-layer',
         'interactive': true,
@@ -316,7 +316,7 @@ map.on('load', function() {
           'circle-stroke-color': 'rgb(107, 178, 244)',
           'circle-color': 'rgb(107, 178, 244)'
        }
-      });
+      }, 'settlement-subdivision-label');
 
   //SHOTS
     map.addLayer({
@@ -330,10 +330,10 @@ map.on('load', function() {
         'circle-opacity': 0.6,
         'circle-radius': 2,
         'circle-stroke-width': 1.2,
-        'circle-stroke-color': 'rgb(98, 123, 140)',
+        'circle-stroke-color': 'rgb(107, 178, 244)',
         'circle-color': 'rgba(0,0,0,0)'
      }
-    });
+    }, 'settlement-subdivision-label');
 
     var marker = {
       type: 'FeatureCollection',
@@ -341,7 +341,7 @@ map.on('load', function() {
         type: 'Feature',
         geometry: {
           type: 'Point',
-          coordinates: [-93.262444, 44.934780]
+          coordinates: [-93.26231142, 44.93426046]
         },
         properties: {
           title: 'Cup Foods',
@@ -362,13 +362,7 @@ map.on('load', function() {
         .addTo(map);
     });
 
-    map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
-
   });
-
-
-  
-
 
 $(document).ready(function() {
     if ($("#map").width() < 600) {
@@ -492,10 +486,6 @@ const map13 = new Map("#tinymap13",43989);
 const map14 = new Map("#tinymap14",43990);
 const map15 = new Map("#tinymap15",43991);
 const map16 = new Map("#tinymap16",43992);
-const map17 = new Map("#tinymap17",43993);
-const map18 = new Map("#tinymap18",43994);
-const map19 = new Map("#tinymap19",43995);
-const map20 = new Map("#tinymap20",43996);
 
 map0.render();
 map1.render();
@@ -515,9 +505,5 @@ map14.render();
 map15.render();
 map15.render();
 map16.render();
-map17.render();
-map18.render();
-map19.render();
-map20.render();
 
 !function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();

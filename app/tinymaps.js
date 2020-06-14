@@ -1,6 +1,5 @@
 import 'intersection-observer';
 import * as d3 from 'd3';
-import * as d3tooltip from 'd3-tooltip';
 import * as topojson from 'topojson';
 import mpls from '../sources/mpct_small.json';
 import incidentsAll from '../sources/incidents_all.json';
@@ -79,26 +78,11 @@ class Map {
             .selectAll("circle")
             .data(topojson.feature(incidentsAll, incidentsAll.objects.incidents_all).features)
             .enter().append("circle")
-            .filter(function(d) { return (d.properties.date_1 == self.time) && (d.properties.type != 'c311'); })
+            .filter(function(d) { return (d.properties.date == self.time); })
             .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
             .attr("r", 1)
             .style("fill", "#9E403C");
             
-
-        // var aspect = 500 / 300,
-        //     chart = $(self.target + " svg");
-        // var targetWidth = chart.parent().width();
-        // chart.attr("width", targetWidth);
-        // chart.attr("height", targetWidth / aspect);
-        // if ($(window).width() <= 520) {
-        //     $(self.target + " svg").attr("viewBox", "0 0 500 550");
-        // }
-
-        // $(window).on("resize", function() {
-        //     targetWidth = chart.parent().width();
-        //     chart.attr("width", targetWidth);
-        //     chart.attr("height", targetWidth / aspect);
-        // });
     }
 }
 
