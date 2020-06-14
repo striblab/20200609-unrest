@@ -1008,8 +1008,15 @@
   
   @media (max-width:600px) {
 
+    #map {
+      height:800px;
+    }
+
     .mapboxgl-canvas {
       pointer-events:none !important;
+    }
+    .mapboxgl-ctrl-scale {
+      display:none;
     }
   
   }

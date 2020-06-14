@@ -99,14 +99,8 @@ import buildings from '../sources/buildings_damaged_final.json';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3RhcnRyaWJ1bmUiLCJhIjoiY2sxYjRnNjdqMGtjOTNjcGY1cHJmZDBoMiJ9.St9lE8qlWR5jIjkPYd3Wqw';
 
-var dzoom = 5.6;
-
-  if ($("#map").width() < 600) {
-    dzoom = 5;
-  }
-
   var mzoom = 11.5;
-  var mobile_zoom = 10.5;
+  var mobile_zoom = 11;
   var center = [-93.265015, 44.977753];
 
 var map = new mapboxgl.Map({
@@ -114,7 +108,7 @@ var map = new mapboxgl.Map({
     style: 'mapbox://styles/startribune/ck1b7427307bv1dsaq4f8aa5h',
     center: center,
     zoom: mzoom,
-    minZoom: mzoom,
+    minZoom: mobile_zoom,
     maxZoom: 16
 });
 
