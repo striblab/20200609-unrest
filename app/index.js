@@ -439,6 +439,47 @@ function update(n) {
   map.setFilter('police-layer', policeFilter);
   map.setFilter('shots-layer', shotsFilter);
 
+  var previous = locations.features[n].properties.date_1 - 1;
+
+  map.setPaintProperty(
+    'fire-layer',
+    'circle-opacity',
+      {
+      "property": "date_1",
+      "stops": [
+        [1, 0.2],
+        [previous, 0.4],
+        [locations.features[n].properties.date_1, 1]
+       ]
+      }
+    );
+
+    map.setPaintProperty(
+      'police-layer',
+      'circle-opacity',
+        {
+        "property": "date_1",
+        "stops": [
+          [1, 0.2],
+          [previous, 0.4],
+          [locations.features[n].properties.date_1, 1]
+        ]
+        }
+      );
+
+      map.setPaintProperty(
+        'shots-layer',
+        'circle-stroke-color',
+          {
+          "property": "date_1",
+          "stops": [
+            [1, 'rgba(107, 178, 244, 0.2)'],
+            [previous, 'rgba(107, 178, 244, 0.4)'],
+            [locations.features[n].properties.date_1, 'rgba(107, 178, 244, 1)']
+           ]
+          }
+        );
+
   var myTimeStr = String(locations.features[n].properties.time);
   var hours = myTimeStr.substring(0, myTimeStr.length-2);
 
@@ -458,6 +499,8 @@ function update(n) {
   var res = hours + ':' + mins;
 
   document.getElementById('active-hour').innerText = locations.features[n].properties.date + " " + res + " " + am;
+
+
 }
 
 
