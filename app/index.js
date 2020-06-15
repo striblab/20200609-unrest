@@ -403,7 +403,7 @@ if(this.className == 'is-playing'){
     if (t == 0) { t = +b.property("min"); }
     b.property("value", t);
     update (t);
-  }, 50);
+  }, 30);
 }
 
 });
