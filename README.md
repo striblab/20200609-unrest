@@ -1,6 +1,6 @@
-# 20200430 Actblue
+# 20200609
 
-Analysis of ActBlue filings from Minnesota
+Analysis of police and fire reports surrounding unrest after George Floyd's death in Minneapolis
 
 ## Data
 
